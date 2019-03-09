@@ -20,3 +20,24 @@ It is an module bundler and task runner
 Reference :
 > https://medium.com/@siddharthac6/getting-started-with-react-js-using-webpack-and-babel-66549f8fbcb8
 > https://www.codecademy.com/articles/react-setup-ii
+
+Adding Redux. 
+
+
+Import Connect - From react-redux Connect is an HOC  (used to  map the stores state and dispatch to the props of a component )
+It needs a MapStateToProps 
+
+CreateStore from redux. it needs reducer function 
+
+Provider connects store to Connect - Just provides store to child components
+FInal Component Hirearchy 
+
+function reducer(){returns somethign };
+const store = createStore(reducer); //Create Store
+ <Provider store={store}>
+    <Main Component />
+ </Provider>
+
+Example:
+ const MainAppPage = connect(mapStateToProps, undefined)
+    (App); 

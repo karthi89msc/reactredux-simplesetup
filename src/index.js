@@ -2,17 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { render } from 'react-dom';
 import { HelloMessage } from './HelloMessage';
-import { createStore } from 'redux';
 import { createReduxRoot } from '../src/CreateReduxRoot';
 import reducer from './reducers/index'
 import { SampleAction } from './actions/SampleActions';
-
-// function reducer() {
-//     // return undefined;
-//     return { name: 'karthik' }
-// }
-
-
 
 const App = ({ name, SampleAction }) => {
     console.log('name: ', name);
@@ -25,7 +17,8 @@ const App = ({ name, SampleAction }) => {
 const mapStateToProps = ({ SampleReducer }) => ({
     name: SampleReducer.name
 });
+//Used to conenct store state and action to component
 const MainAppPage = connect(mapStateToProps, { SampleAction })
-    (App);
-const Root = createReduxRoot(reducer, MainAppPage)
+    (App); // This is the main app which will be wrapped with provider
+const Root = createReduxRoot(reducer, MainAppPage) // Creates store from the reducer passed in and wraps with Provider
 render(<Root />, document.getElementById('root'));
